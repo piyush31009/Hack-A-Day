@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 
-function Checkbox() {
+function MCheckbox() {
   const [checkedItems, setCheckedItems] = useState([]); // Initialize an empty array for checked items
 
   const checkboxes = [
-    { id: 1, label: 'Pandas' },
-    { id: 2, label: 'Numpy' },
-    { id: 3, label: 'Pytorch' },
-    { id: 4, label: 'Tensorflow' },
-    { id: 5, label: 'Scikit_learn'},
+    { id: 1, label: 'Accuracy' },
+    { id: 2, label: 'Precision' },
   ];
 
   const handleCheckboxChange = (event) => {
@@ -32,7 +29,6 @@ function Checkbox() {
                   checked={checkedItems.includes(checkbox.label)}
                   onChange={handleCheckboxChange}
                 />
-                
                 <span>{checkbox.label}</span>
           
           {/* {checkbox.label} */}
@@ -47,4 +43,4 @@ function Checkbox() {
   );
 }
 
-export default Checkbox;
+export default MCheckbox;

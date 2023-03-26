@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import './App.css';
 import Checkbox from './main/checkbox';
+import MCheckbox from './main/metriccheck';
+
+
 const layout = {
   labelCol: {
     span: 8,
@@ -10,6 +13,7 @@ const layout = {
     span: 16,
   },
 };
+
 const tailLayout = {
   wrapperCol: {
     offset: 8,
@@ -49,6 +53,7 @@ const App = () => {
         initialValues={{
           remember: true,
         }}
+        
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
       >
@@ -79,19 +84,22 @@ const App = () => {
           <Input.TextArea />
         </Form.Item>
          &nbsp;
+
         <Form.Item
           label="Tech Stack (Numpy, Pandas, Scikit_learn,Tensor flow and Pytorch)"
           name="modeltech"
-          
+          rules={[
+            {
+              required:false,
+              message: 'Please select technology used!'
+            },
+          ]}
         >
-          <Checkbox label="Numpy"/>
-          <Checkbox label="Pandas"/>
-          <Checkbox label="Scikit_learn"/>
-          <Checkbox label="Tensorflow"/>
-          <Checkbox label="Pytorch"/>
+          <Checkbox />
  
         </Form.Item>
         &nbsp;
+    
         <Form.Item
           label="Upload Model"
           name="modelupload"
@@ -106,6 +114,7 @@ const App = () => {
           <input type="file" onChange={handleFileUpload} />
         </Form.Item>
         &nbsp;
+    
         <Form.Item
           label="Upload Test Data"
           name="modeldata"
@@ -116,17 +125,22 @@ const App = () => {
             },
           ]}
         >
-        <input type="file" onChange={handleFileUpload} />
+        <Input type="file" onChange={handleFileUpload} />
         </Form.Item>
           &nbsp;
 
         <Form.Item
           label="Metric(Accuracy or Precision)"
           name="modelmetric"
-          
+          rules={[
+            {
+              required:false,
+              message: 'Please select metric!'
+            },
+          ]}
         >
-          <Checkbox label="Precision"/>
-          <Checkbox label="Accuracy"/>
+          <MCheckbox/>
+          
         </Form.Item>
           &nbsp;
 
@@ -145,6 +159,7 @@ const App = () => {
           <p>Description: {modelDetails.description}</p>
           <p>Tech Stack: {modelDetails.modeltech}</p>
           <p>Upload model: {modelDetails.modelupload}</p>
+          <p>Upload data: {modelDetails.modeldata}</p>
           <p>Metric: {modelDetails.modelmetric}</p>
           
         </div>
