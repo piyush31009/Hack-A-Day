@@ -1,4 +1,4 @@
-#HACK A DAY: APPROVAL PAGE
+# HACK A DAY: APPROVAL PAGE
 
 
 # Getting Started with Create React App
